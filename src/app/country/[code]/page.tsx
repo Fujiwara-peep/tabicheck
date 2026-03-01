@@ -156,7 +156,7 @@ export default async function CountryPage({ params }: Props) {
     <main className="max-w-5xl mx-auto px-4 py-8">
       {/* ページヘッダー */}
       <div className="mb-8">
-        <div className="flex items-center gap-3 mb-2">
+        <div className="flex items-start gap-3 mb-3">
           <div className="w-20 h-14 flex items-center justify-center flex-shrink-0">
             <img
               src={`https://flagcdn.com/w80/${c.country_code.toLowerCase()}.png`}
@@ -164,13 +164,17 @@ export default async function CountryPage({ params }: Props) {
               className="max-w-full max-h-full object-contain rounded-lg shadow-md"
             />
           </div>
-          <div>
+          <div className="flex-1 min-w-0">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{c.country_name_ja}</h1>
-            <p className="text-gray-500">{c.country_name_en}</p>
+            <p className="text-gray-500 text-sm">{c.country_name_en}</p>
+          </div>
+          <div className="flex items-center gap-2 flex-shrink-0 print:hidden">
+            <ShareButton countryName={c.country_name_ja} countryCode={c.country_code} />
+            <PrintButton />
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 mt-4">
+        <div className="flex flex-wrap items-center gap-2">
           <SafetyBadge level={c.safety_level} />
           {c.is_manually_verified ? (
             <span className="inline-flex items-center gap-1 text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full border border-green-200">
@@ -184,10 +188,6 @@ export default async function CountryPage({ params }: Props) {
           {c.last_updated && (
             <span className="text-xs text-gray-400">最終確認: {c.last_updated}</span>
           )}
-        </div>
-        <div className="flex flex-wrap items-center gap-3 mt-3">
-          <ShareButton countryName={c.country_name_ja} countryCode={c.country_code} />
-          <PrintButton />
         </div>
       </div>
 
