@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f9fafb;
+  --foreground: #111827;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* ─── 印刷/PDF用スタイル ─── */
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm 1.5cm 2cm 1.5cm;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 10pt;
+  }
+
+  /* カードがページをまたがないように */
+  .print-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* リンクのURLを印刷しない */
+  a[href]::after {
+    content: none !important;
+  }
+
+  /* 影・グラデーションを除去 */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
