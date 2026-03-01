@@ -49,8 +49,8 @@ function InfoCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-      <h2 className="flex items-center gap-2 text-lg font-bold text-gray-800 mb-4">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm p-6">
+      <h2 className="flex items-center gap-2 text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">
         <span className="text-2xl">{icon}</span>
         {title}
       </h2>
@@ -61,9 +61,9 @@ function InfoCard({
 
 function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="flex items-start gap-2 py-2.5 border-b border-gray-50 last:border-0">
-      <dt className="text-sm text-gray-500 flex-shrink-0 w-24 sm:w-36">{label}</dt>
-      <dd className="text-sm text-gray-800 flex-1 min-w-0">{value || '情報なし'}</dd>
+    <div className="flex items-start gap-2 py-2.5 border-b border-gray-50 dark:border-gray-700 last:border-0">
+      <dt className="text-sm text-gray-500 dark:text-gray-400 flex-shrink-0 w-24 sm:w-36">{label}</dt>
+      <dd className="text-sm text-gray-800 dark:text-gray-200 flex-1 min-w-0">{value || '情報なし'}</dd>
     </div>
   );
 }
@@ -165,8 +165,8 @@ export default async function CountryPage({ params }: Props) {
             />
           </div>
           <div className="flex-1 min-w-0">
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{c.country_name_ja}</h1>
-            <p className="text-gray-500 text-sm">{c.country_name_en}</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100">{c.country_name_ja}</h1>
+            <p className="text-gray-500 dark:text-gray-400 text-sm">{c.country_name_en}</p>
           </div>
           <div className="flex items-center gap-2 flex-shrink-0 print:hidden">
             <ShareButton countryName={c.country_name_ja} countryCode={c.country_code} />
@@ -192,7 +192,7 @@ export default async function CountryPage({ params }: Props) {
       </div>
 
       {/* 免責注意 */}
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800 mb-8">
+      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 rounded-xl p-4 text-sm text-amber-800 dark:text-amber-300 mb-8">
         ⚠️ 情報は参考目的です。渡航前に必ず
         <a
           href="https://www.anzen.mofa.go.jp"
@@ -237,10 +237,10 @@ export default async function CountryPage({ params }: Props) {
             />
           </dl>
           {c.visa_notes && (
-            <p className="text-sm text-gray-600 mt-3 p-3 bg-blue-50 rounded-lg">{c.visa_notes}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">{c.visa_notes}</p>
           )}
           {c.entry_documents && (
-            <p className="text-sm text-gray-600 mt-2 p-3 bg-gray-50 rounded-lg">
+            <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
               <span className="font-medium">必要書類:</span> {c.entry_documents}
             </p>
           )}
@@ -270,7 +270,7 @@ export default async function CountryPage({ params }: Props) {
           </dl>
           <PlugTypeInfo plugType={c.plug_type} />
           {c.voltage && c.voltage !== 100 && (
-            <div className="mt-3 p-3 bg-amber-50 rounded-lg text-sm text-amber-800">
+            <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg text-sm text-amber-800 dark:text-amber-300">
               ⚠️ 日本（100V）と電圧が異なります。持参する電化製品が対応しているか確認してください。
             </div>
           )}
@@ -298,7 +298,7 @@ export default async function CountryPage({ params }: Props) {
             <InfoRow label="Wi-Fi環境" value={c.wifi_quality} />
           </dl>
           {c.esim_supported && (
-            <div className="mt-3 p-3 bg-green-50 rounded-lg text-sm text-green-800">
+            <div className="mt-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg text-sm text-green-800 dark:text-green-300">
               ✅ eSIM対応。AiraloなどのeSIMサービスで事前購入がおすすめ。
             </div>
           )}
@@ -314,12 +314,12 @@ export default async function CountryPage({ params }: Props) {
             <InfoRow label="カード利用" value={c.card_usage} />
           </dl>
           {c.tip_culture && (
-            <div className="mt-3 p-3 bg-blue-50 rounded-lg text-sm text-blue-800">
+            <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-sm text-blue-800 dark:text-blue-300">
               <span className="font-medium">チップ:</span> {c.tip_culture}
             </div>
           )}
           {c.exchange_notes && (
-            <div className="mt-2 p-3 bg-gray-50 rounded-lg text-sm text-gray-700">
+            <div className="mt-2 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-sm text-gray-700 dark:text-gray-300">
               <span className="font-medium">両替:</span> {c.exchange_notes}
             </div>
           )}
@@ -346,7 +346,7 @@ export default async function CountryPage({ params }: Props) {
             )}
           </dl>
           {c.safety_notes && (
-            <p className="text-sm text-gray-600 mt-3 p-3 bg-orange-50 rounded-lg">{c.safety_notes}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">{c.safety_notes}</p>
           )}
           <MofaLink countryNameEn={c.country_name_en} />
         </InfoCard>
@@ -405,12 +405,12 @@ export default async function CountryPage({ params }: Props) {
           href="https://www.airalo.com"
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="flex items-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-xl hover:shadow-md transition-all"
+          className="flex items-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800/50 rounded-xl hover:shadow-md transition-all"
         >
           <span className="text-2xl">📱</span>
           <div>
-            <p className="font-medium text-blue-800 text-sm">eSIMを事前購入</p>
-            <p className="text-xs text-blue-600">Airalo - 現地到着後すぐ使える</p>
+            <p className="font-medium text-blue-800 dark:text-blue-300 text-sm">eSIMを事前購入</p>
+            <p className="text-xs text-blue-600 dark:text-blue-400">Airalo - 現地到着後すぐ使える</p>
           </div>
           <ExternalLink className="w-4 h-4 text-blue-400 ml-auto" />
         </a>
@@ -418,12 +418,12 @@ export default async function CountryPage({ params }: Props) {
           href="https://www.booking.com"
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="flex items-center gap-3 p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 border border-indigo-200 rounded-xl hover:shadow-md transition-all"
+          className="flex items-center gap-3 p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-900/30 border border-indigo-200 dark:border-indigo-800/50 rounded-xl hover:shadow-md transition-all"
         >
           <span className="text-2xl">🏨</span>
           <div>
-            <p className="font-medium text-indigo-800 text-sm">ホテルを予約</p>
-            <p className="text-xs text-indigo-600">Booking.com - 世界最大規模</p>
+            <p className="font-medium text-indigo-800 dark:text-indigo-300 text-sm">ホテルを予約</p>
+            <p className="text-xs text-indigo-600 dark:text-indigo-400">Booking.com - 世界最大規模</p>
           </div>
           <ExternalLink className="w-4 h-4 text-indigo-400 ml-auto" />
         </a>
@@ -431,12 +431,12 @@ export default async function CountryPage({ params }: Props) {
           href="https://www.sonysonpo.co.jp"
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="flex items-center gap-3 p-4 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-xl hover:shadow-md transition-all"
+          className="flex items-center gap-3 p-4 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-900/30 border border-green-200 dark:border-green-800/50 rounded-xl hover:shadow-md transition-all"
         >
           <span className="text-2xl">🛡️</span>
           <div>
-            <p className="font-medium text-green-800 text-sm">海外旅行保険</p>
-            <p className="text-xs text-green-600">ソニー損保 - おすすめ</p>
+            <p className="font-medium text-green-800 dark:text-green-300 text-sm">海外旅行保険</p>
+            <p className="text-xs text-green-600 dark:text-green-400">ソニー損保 - おすすめ</p>
           </div>
           <ExternalLink className="w-4 h-4 text-green-400 ml-auto" />
         </a>
@@ -447,7 +447,7 @@ export default async function CountryPage({ params }: Props) {
         <Link href="/" className="text-blue-600 hover:underline text-sm">
           ← 別の国を調べる
         </Link>
-        <span className="text-gray-300 mx-3">|</span>
+        <span className="text-gray-300 dark:text-gray-700 mx-3">|</span>
         <Link href="/countries" className="text-blue-600 hover:underline text-sm">
           全対応国一覧
         </Link>

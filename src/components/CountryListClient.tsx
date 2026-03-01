@@ -60,7 +60,7 @@ export default function CountryListClient({ countries }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="国名で絞り込む（例：タイ、France）"
-          className="w-full pl-9 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 text-sm bg-white transition-all"
+          className="w-full pl-9 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 dark:focus:ring-blue-900/30 text-sm bg-white dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 transition-all"
         />
       </div>
 
@@ -73,7 +73,7 @@ export default function CountryListClient({ countries }: Props) {
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
               activeRegion === region
                 ? 'bg-blue-600 text-white shadow-sm'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
             {region}
@@ -82,7 +82,7 @@ export default function CountryListClient({ countries }: Props) {
       </div>
 
       {/* 件数表示 */}
-      <p className="text-sm text-gray-400 mb-4">
+      <p className="text-sm text-gray-400 dark:text-gray-500 mb-4">
         {filtered.length}カ国を表示
         {activeRegion !== 'すべて' && <span className="ml-1 text-blue-500">・{activeRegion}</span>}
         {query && <span className="ml-1 text-blue-500">・「{query}」</span>}
@@ -95,7 +95,7 @@ export default function CountryListClient({ countries }: Props) {
             <Link
               key={country.country_code}
               href={`/country/${country.country_code.toLowerCase()}`}
-              className="flex flex-col items-center gap-2 p-3 sm:p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-200 group"
+              className="flex flex-col items-center gap-2 p-3 sm:p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-600 hover:-translate-y-0.5 transition-all duration-200 group"
             >
               <div className="w-12 h-8 sm:w-14 sm:h-10 flex items-center justify-center">
                 <img
@@ -104,14 +104,14 @@ export default function CountryListClient({ countries }: Props) {
                   className="max-w-full max-h-full object-contain rounded shadow-sm drop-shadow-sm"
                 />
               </div>
-              <p className="font-bold text-gray-800 group-hover:text-blue-600 transition-colors text-sm text-center leading-tight">
+              <p className="font-bold text-gray-800 dark:text-gray-100 group-hover:text-blue-600 transition-colors text-sm text-center leading-tight">
                 {country.country_name_ja}
               </p>
             </Link>
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 text-gray-400">
+        <div className="text-center py-16 text-gray-400 dark:text-gray-600">
           <Search className="w-10 h-10 mx-auto mb-3 opacity-30" />
           <p className="text-sm">該当する国が見つかりませんでした</p>
           {query && (

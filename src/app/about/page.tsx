@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">TabiCheckについて</h1>
-      <p className="text-gray-500 mb-10">日本人旅行者のための旅行準備情報サービス</p>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">TabiCheckについて</h1>
+      <p className="text-gray-500 dark:text-gray-400 mb-10">日本人旅行者のための旅行準備情報サービス</p>
 
       <div className="space-y-8">
         <section>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">このサービスとは</h2>
-          <p className="text-gray-600 leading-relaxed">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">このサービスとは</h2>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
             TabiCheckは、海外旅行前に「ビザ 日本人 〇〇」「〇〇 電源プラグ」「〇〇 持ち込み禁止」のような
             検索を目的地の数だけ繰り返している日本人旅行者のためのサービスです。
             国名を入力するだけで、旅行前に必要な準備情報がすべて一画面に表示されます。
@@ -24,7 +24,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">表示する情報の8カテゴリ</h2>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">表示する情報の8カテゴリ</h2>
           <ul className="space-y-2">
             {[
               '① 入国要件（ビザ・ESTA・パスポート残存期間）',
@@ -36,7 +36,7 @@ export default function AboutPage() {
               '⑦ 文化・マナー',
               '⑧ 緊急連絡先（警察・救急・日本大使館）',
             ].map((item) => (
-              <li key={item} className="flex items-start gap-2 text-gray-700">
+              <li key={item} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                 <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
                 {item}
               </li>
@@ -45,22 +45,22 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">情報の信頼性について</h2>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">情報の信頼性について</h2>
           <div className="space-y-3">
-            <div className="flex items-start gap-3 p-4 bg-green-50 border border-green-200 rounded-xl">
-              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+            <div className="flex items-start gap-3 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/50 rounded-xl">
+              <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
               <div>
-                <p className="font-medium text-green-800">確認済み情報</p>
-                <p className="text-sm text-green-700 mt-1">
+                <p className="font-medium text-green-800 dark:text-green-300">確認済み情報</p>
+                <p className="text-sm text-green-700 dark:text-green-400 mt-1">
                   主要40カ国以上を手動で調査・確認した情報です。外務省・各国大使館の公式情報を参照しています。
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-3 p-4 bg-orange-50 border border-orange-200 rounded-xl">
-              <AlertTriangle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+            <div className="flex items-start gap-3 p-4 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800/50 rounded-xl">
+              <AlertTriangle className="w-5 h-5 text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
               <div>
-                <p className="font-medium text-orange-800">情報未確認</p>
-                <p className="text-sm text-orange-700 mt-1">
+                <p className="font-medium text-orange-800 dark:text-orange-300">情報未確認</p>
+                <p className="text-sm text-orange-700 dark:text-orange-400 mt-1">
                   掲載情報が未検証の国です。渡航前に必ず外務省・各国大使館の公式情報をご確認ください。
                 </p>
               </div>
@@ -69,7 +69,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">情報ソース（優先順位）</h2>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">情報ソース（優先順位）</h2>
           <ol className="space-y-2">
             {[
               { label: '外務省「海外安全情報」', url: 'https://www.anzen.mofa.go.jp' },
@@ -77,8 +77,8 @@ export default function AboutPage() {
               { label: 'IATA Travel Centre（ビザ情報）', url: null },
               { label: '各国観光局・政府公式サイト', url: null },
             ].map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-gray-700">
-                <span className="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+              <li key={i} className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                <span className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
                   {i + 1}
                 </span>
                 {item.url ? (
@@ -95,8 +95,8 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-800 mb-4">免責事項</h2>
-          <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-900 leading-relaxed">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">免責事項</h2>
+          <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 rounded-xl text-sm text-amber-900 dark:text-amber-300 leading-relaxed">
             <p>
               本サービスの情報は参考目的のみです。ビザ要件・入国規制は政治情勢により急変する場合があります。
               渡航前に必ず外務省の公式情報および関係機関にてご確認ください。

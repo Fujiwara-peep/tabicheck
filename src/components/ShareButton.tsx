@@ -52,14 +52,14 @@ export default function ShareButton({ countryName, countryCode }: ShareButtonPro
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-label="シェアメニューを開く"
-        className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+        className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
       >
         <Share2 className="w-4 h-4" />
         シェア
       </button>
 
       {open && (
-        <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-100 p-2 z-20 flex flex-col gap-1.5 min-w-[180px]">
+        <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 p-2 z-20 flex flex-col gap-1.5 min-w-[180px]">
           {/* LINE */}
           <a
             href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}&text=${encodedText}`}
@@ -91,7 +91,7 @@ export default function ShareButton({ countryName, countryCode }: ShareButtonPro
           {/* URLコピー */}
           <button
             onClick={handleCopy}
-            className="flex items-center gap-2.5 px-3 py-2.5 bg-gray-50 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors"
+            className="flex items-center gap-2.5 px-3 py-2.5 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
           >
             {copied ? (
               <>

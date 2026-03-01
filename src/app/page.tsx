@@ -20,7 +20,7 @@ async function PopularCountries() {
 
   return (
     <div className="mt-12">
-      <p className="text-center text-sm font-medium text-gray-400 mb-5 tracking-wide">日本人に人気の渡航先 Top 10</p>
+      <p className="text-center text-sm font-medium text-gray-400 dark:text-gray-500 mb-5 tracking-wide">日本人に人気の渡航先 Top 10</p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
         {countries.map((country) => {
           const safety = safetyLabel(country.safety_level);
@@ -28,7 +28,7 @@ async function PopularCountries() {
             <Link
               key={country.country_code}
               href={`/country/${country.country_code.toLowerCase()}`}
-              className="flex flex-col items-center gap-2 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-200 group"
+              className="flex flex-col items-center gap-2 p-4 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-600 hover:-translate-y-0.5 transition-all duration-200 group"
             >
               <div className="w-14 h-10 flex items-center justify-center">
                 <img
@@ -37,12 +37,12 @@ async function PopularCountries() {
                   className="max-w-full max-h-full object-contain rounded shadow-sm drop-shadow-sm"
                 />
               </div>
-              <span className="text-sm font-bold text-gray-800 group-hover:text-blue-600 transition-colors text-center">
+              <span className="text-sm font-bold text-gray-800 dark:text-gray-100 group-hover:text-blue-600 transition-colors text-center">
                 {country.country_name_ja}
               </span>
               <div className="flex flex-wrap justify-center gap-1">
                 {country.visa_required && (
-                  <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">
+                  <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 rounded-full font-medium">
                     ビザ必要
                   </span>
                 )}
@@ -62,18 +62,18 @@ async function PopularCountries() {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-white">
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-900">
       {/* ヒーローセクション */}
       <section className="max-w-5xl mx-auto px-4 pt-10 sm:pt-16 pb-12 text-center">
-        <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm px-4 py-1.5 rounded-full mb-6 font-medium">
+        <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm px-4 py-1.5 rounded-full mb-6 font-medium">
           <img src="https://flagcdn.com/w20/jp.png" alt="日本国旗" className="h-3.5 w-auto object-contain" />
           日本人旅行者向け・完全無料
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 leading-tight">
           海外旅行の準備情報を<br />
           <span className="text-blue-600">一発で調べる</span>
         </h1>
-        <p className="text-base sm:text-lg text-gray-500 mb-10 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
           ビザ・電源プラグ・治安・通貨・緊急連絡先など<br className="hidden md:block" />
           旅行前に必要な情報がすべて一画面に
         </p>
@@ -81,7 +81,7 @@ export default function HomePage() {
         <SearchBox />
 
         <div className="mt-4 flex items-center justify-center gap-3">
-          <span className="text-sm text-gray-400">または</span>
+          <span className="text-sm text-gray-400 dark:text-gray-500">または</span>
           <Link
             href="/countries"
             className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline transition-colors"
@@ -104,7 +104,7 @@ export default function HomePage() {
 
       {/* 免責注意 */}
       <div className="max-w-3xl mx-auto px-4 pb-4">
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-sm text-amber-800 text-center">
+        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 rounded-2xl p-4 text-sm text-amber-800 dark:text-amber-300 text-center">
           ⚠️ 掲載情報は参考目的です。渡航前に必ず
           <a
             href="https://www.anzen.mofa.go.jp"
@@ -120,7 +120,7 @@ export default function HomePage() {
 
       {/* 特徴セクション */}
       <section className="max-w-5xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-10">8カテゴリの情報を一画面に</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-100 mb-10">8カテゴリの情報を一画面に</h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {[
             { icon: '🛂', title: '入国要件', desc: 'ビザ・ESTA・パスポート残存期間' },
@@ -134,11 +134,11 @@ export default function HomePage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="flex flex-col items-center text-center p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+              className="flex flex-col items-center text-center p-4 sm:p-5 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow"
             >
               <span className="text-3xl sm:text-4xl mb-2 sm:mb-3">{item.icon}</span>
-              <h3 className="font-bold text-gray-800 mb-1 text-sm sm:text-base">{item.title}</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+              <h3 className="font-bold text-gray-800 dark:text-gray-100 mb-1 text-sm sm:text-base">{item.title}</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
