@@ -402,15 +402,15 @@ export default async function CountryPage({ params }: Props) {
       {/* アフィリエイトリンク */}
       <div className="print:hidden mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
         <a
-          href="https://www.airalo.com"
+          href="https://px.a8.net/svt/ejp?a8mat=4AZ707+DQ5SVM+2JMM+64C3M"
           target="_blank"
           rel="noopener noreferrer sponsored"
           className="flex items-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800/50 rounded-xl hover:shadow-md transition-all"
         >
-          <span className="text-2xl">📱</span>
+          <span className="text-2xl">📶</span>
           <div>
-            <p className="font-medium text-blue-800 dark:text-blue-300 text-sm">eSIMを事前購入</p>
-            <p className="text-xs text-blue-600 dark:text-blue-400">Airalo - 現地到着後すぐ使える</p>
+            <p className="font-medium text-blue-800 dark:text-blue-300 text-sm">海外WiFiをレンタル</p>
+            <p className="text-xs text-blue-600 dark:text-blue-400">グローバルWiFi - 渡航前に予約がお得</p>
           </div>
           <ExternalLink className="w-4 h-4 text-blue-400 ml-auto" />
         </a>
